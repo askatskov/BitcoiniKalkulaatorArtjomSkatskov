@@ -3,45 +3,62 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace BitcoiniKalkulaatorArtjomSkatškov
+namespace BitcoinKalkulatorArtjomSkatskov
 {
     public class BitcoinRates
     {
-        public Bpi Bpi { get; set; }
+        public Data Data { get; set; }
     }
 
-    public class Bpi
+    public class BTCEUR
     {
-        public USD USD { get; set; }
-        public EUR EUR { get; set; }
-        public GBP GBP { get; set; }
+        public int CCSEQ { get; set; }
+        public double VALUE { get; set; }
+        public string VALUE_FLAG { get; set; }
+        public int VALUE_LAST_UPDATE_TS { get; set; }
+        public int VALUE_LAST_UPDATE_TS_NS { get; set; }
     }
 
-    public class GBP
+    public class BTCGBP
     {
-        public string code { get; set; }
-        public string symbol { get; set; }
-        public string rate { get; set; }
-        public string description { get; set; }
-        public double rate_float { get; set; }
+        public int CCSEQ { get; set; }
+        public double VALUE { get; set; }
+        public string VALUE_FLAG { get; set; }
+        public int VALUE_LAST_UPDATE_TS { get; set; }
+        public int VALUE_LAST_UPDATE_TS_NS { get; set; }
     }
 
-    public class EUR
+    public class BTCUSD
     {
-        public string code { get; set; }
-        public string symbol { get; set; }
-        public string rate { get; set; }
-        public string description { get; set; }
-        public double rate_float { get; set; }
+        public int CCSEQ { get; set; }
+        public double VALUE { get; set; }
+        public string VALUE_FLAG { get; set; }
+        public int VALUE_LAST_UPDATE_TS { get; set; }
+        public int VALUE_LAST_UPDATE_TS_NS { get; set; }
     }
 
-    public class USD
+    public class Data
     {
-        public string code { get; set; }
-        public string symbol { get; set; }
-        public string rate { get; set; }
-        public string description { get; set; }
-        public double rate_float { get; set; }
+        [JsonProperty("BTC-USD")]
+        public BTCUSD BTCUSD { get; set; }
+
+        [JsonProperty("BTC-EUR")]
+        public BTCEUR BTCEUR { get; set; }
+
+        [JsonProperty("BTC-GBP")]
+        public BTCGBP BTCGBP { get; set; }
     }
+
+    public class Err
+    {
+    }
+
+    public class Root
+    {
+        public Data Data { get; set; }
+        public Err Err { get; set; }
+    }
+
 }

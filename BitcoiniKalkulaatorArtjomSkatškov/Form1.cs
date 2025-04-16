@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BitcoinKalkulatorArtjomSkatskov;
 using Newtonsoft.Json;
 
 namespace BitcoiniKalkulaatorArtjomSkatškov
@@ -37,13 +38,30 @@ namespace BitcoiniKalkulaatorArtjomSkatškov
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (currencyselector.SelectedItem.ToString() == "USD") 
+            if (currencyselector.SelectedItem.ToString() == "USD")
             {
                 resultlabel.Visible = true;
                 tulemuslabel.Visible = true;
                 BitcoinRates newbitcoinrate = GetRates();
-                float result = float.Parse(bitcoinamountinput.Text) * (float)newbitcoinrate.Bpi.USD.rate_float;
-                resultlabel.Text = $"{result} Bitcoini{newbitcoinrate.Bpi.USD.code}";
+                float result = float.Parse(bitcoinamountinput.Text) * (float)newbitcoinrate.Data.BTCUSD.VALUE;
+                resultlabel.Text = $"{result} USD (kurss: {newbitcoinrate.Data.BTCUSD.VALUE})";
+
+            }
+            else if(currencyselector.SelectedItem.ToString() == "EUR")
+            {
+                resultlabel.Visible = true;
+                tulemuslabel.Visible = true;
+                BitcoinRates newbitcoinrate = GetRates();
+                float result = float.Parse(bitcoinamountinput.Text) * (float)newbitcoinrate.Data.BTCEUR.VALUE;
+                resultlabel.Text = $"{result} USD (kurss: {newbitcoinrate.Data.BTCEUR.VALUE})";
+            }
+            else if(currencyselector.SelectedItem.ToString() == "GBP")
+            {
+                resultlabel.Visible = true;
+                tulemuslabel.Visible = true;
+                BitcoinRates newbitcoinrate = GetRates();
+                float result = float.Parse(bitcoinamountinput.Text) * (float)newbitcoinrate.Data.BTCGBP.VALUE;
+                resultlabel.Text = $"{result} USD (kurss: {newbitcoinrate.Data.BTCGBP.VALUE})";
             }
         }
 

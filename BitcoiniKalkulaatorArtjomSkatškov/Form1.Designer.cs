@@ -114,7 +114,7 @@
             this.resultlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.resultlabel.Location = new System.Drawing.Point(38, 365);
             this.resultlabel.Name = "resultlabel";
-            this.resultlabel.Size = new System.Drawing.Size(442, 37);
+            this.resultlabel.Size = new System.Drawing.Size(651, 37);
             this.resultlabel.TabIndex = 7;
             this.resultlabel.Text = "Konverteerimist pole toimunud";
             this.resultlabel.Visible = false;
@@ -125,7 +125,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BitcoiniKalkulaatorArtjomSkatškov.Properties.Resources._1_19;
-            this.ClientSize = new System.Drawing.Size(584, 450);
+            this.ClientSize = new System.Drawing.Size(701, 450);
             this.Controls.Add(this.resultlabel);
             this.Controls.Add(this.tulemuslabel);
             this.Controls.Add(this.currencyselector);
